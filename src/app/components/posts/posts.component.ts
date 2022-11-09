@@ -11,6 +11,8 @@ export class PostsComponent implements OnInit {
   @Input()
   posts: IPost[]
 
+  selectedPost: IPost
+
   constructor(private PostService: PostService) {
   }
 
@@ -18,4 +20,8 @@ export class PostsComponent implements OnInit {
     this.PostService.getAllPost().subscribe(value => this.posts = value)
   }
 
+
+  getUser(post: IPost) {
+    this.selectedPost = post
+  }
 }

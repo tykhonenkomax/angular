@@ -12,6 +12,8 @@ export class UsersComponent implements OnInit {
   @Input()
   users: IUser[]
 
+  selectedUser: IUser
+
   constructor(private UserServices: UserServices) {
   }
 
@@ -19,5 +21,7 @@ export class UsersComponent implements OnInit {
     this.UserServices.getAllUsers().subscribe(value => this.users = value)
   }
 
-
+  getUser(user: IUser) {
+    this.selectedUser = user
+  }
 }

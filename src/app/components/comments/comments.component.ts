@@ -11,6 +11,8 @@ export class CommentsComponent implements OnInit {
   @Input()
   comments: IComment[]
 
+  selectedComment: IComment
+
   constructor(private CommentService: CommentService) {
   }
 
@@ -18,4 +20,7 @@ export class CommentsComponent implements OnInit {
     this.CommentService.getAllComments().subscribe(value => this.comments = value)
   }
 
+  getComment(comment: IComment) {
+    this.selectedComment = comment
+  }
 }
